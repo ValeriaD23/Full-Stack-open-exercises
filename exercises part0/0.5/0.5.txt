@@ -1,0 +1,22 @@
+note over browser:
+When you create a new note in a Single-page application(SPA), you'll
+notice that the browser sends only one HTTP POST request to the server.
+All of the logic is on the server, and the browser
+only renders the HTML as instructed.
+end note
+
+note over browser:
+The browser executes the Javascript code it fetched from the server. This Java-
+script code fetches the notes as JSON-data and adds HTML elements for displaying
+the notes using the DOM API.
+end note
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa 
+browser->server: content-type: application/json; charset=utf-8
+server-->browser: Status Code 201
+
+note over server:
+Status Code 201 means 'The request has been fullfilled and has resulted in one or 
+more new resources being created'
+end note
+

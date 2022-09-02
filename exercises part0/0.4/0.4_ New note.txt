@@ -1,0 +1,30 @@
+note over browser:
+Form input from the user will be submitted from the browser to the server.
+The form has attributes which define that submitting the form is done as an HTTP
+POST to the server address new_note
+end note
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
+
+note over server:
+The server sends Status Code 302 which is an URL redirect.
+end note
+
+server-->browser: 302
+
+note over browser:
+The browser reloads the webpage and the reload causes 3 more HTTP GET requests.
+end note
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+server-->browser: main.js
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->browser: data.json
+
+note over browser:
+After recieving the data.json file, the browser
+has all the needed information to correctly display the webpage.
+end note
+
